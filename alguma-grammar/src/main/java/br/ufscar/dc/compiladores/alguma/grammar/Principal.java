@@ -11,6 +11,7 @@ import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.Token;
 import java.io.File;
 import java.io.FileWriter;
+import antlr4.br.ufscar.dc.compiladores.alguma.grammar.AlgumaGrammar;
 
 public class Principal {
     
@@ -39,7 +40,7 @@ public class Principal {
             // Remove a classe padrão de listeners para erros  
             parser.removeErrorListeners();
             // Adicionando a classe CustomErrorListener com método customizado para erros de sintaxe (syntaxError)
-            parser.addErrorListener(new CustomErrorListener(pw));
+            parser.addErrorListener(new CustomErrorListener(buffer));
             
 
             // Análise a cada token
