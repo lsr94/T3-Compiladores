@@ -8,10 +8,10 @@ package br.ufscar.dc.compiladores.alguma.grammar;
 
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
+import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.Token;
 import java.io.File;
 import java.io.FileWriter;
-import antlr4.br.ufscar.dc.compiladores.alguma.grammar.AlgumaGrammar;
 
 public class Principal {
     
@@ -33,60 +33,19 @@ public class Principal {
         try {
             // Leitura dos caracteres
             CharStream cs = CharStreams.fromFileName(args[0]);
-            AlgumaGrammar parser = new AlgumaGrammar(cs);
-            Token t;
-            String vocab_type;
+            AlgumaGrammarLexer lexer = new AlgumaGrammarLexer(cs);
+
+            CommonTokenStream tokens = new CommonTokenStream(lexer);
+            AlgumaGrammarParser parser = new AlgumaGrammarParser(tokens);
+            
 
             // Remove a classe padrão de listeners para erros  
             parser.removeErrorListeners();
             // Adicionando a classe CustomErrorListener com método customizado para erros de sintaxe (syntaxError)
             parser.addErrorListener(new CustomErrorListener(buffer));
             
-
-            // Análise a cada token
-            while ((t = parser.nextToken()).getType() != Token.EOF) {
-                // Detecta erros e interrompe o programa
-                // Caso o token seja palavra reservada, o nome do seu tipo é o próprio texto do token
-                // Senão, utiliza o nome do tipo do token no vocabulário
-
-                // Definição do nome do tipo do símbolo
-                String token_type = AlgumaGrammar.VOCABULARY.getDisplayName(t.getType());
-
-                // Erro: não reconhecimento de símbolo. Finaliza o programa.
-                if(token_type.equals("ERRO")) {
-                    buffer.append("Linha "+t.getLine()+": "+t.getText()+" - simbolo nao identificado\n");
-                    break;
-                } 
-
-                // Erro: cadeia literal não fechada. Finaliza o programa.  
-                else if(token_type.equals("CADEIA_NAO_FECHADA")) { 
-                    buffer.append("Linha "+t.getLine()+": cadeia literal nao fechada\n");
-                    break;
-                }
-
-                // Erro: comentário não fechado. Finaliza o programa.  
-                else if(token_type.equals("COMENTARIO_NAO_FECHADO")){
-                    buffer.append("Linha "+t.getLine()+": comentario nao fechado\n");
-                    break;
-                }
-
-                // Reconhece palavras reservadas (PALAVRA_CHAVE), Operadores relacionais (OP_REL), aritméticos (OP_ARIT),
-                // lógicos (OP_LOG) e caracteres especiais (CARACTERE_ESP) 
-                // Escreve no formato <texto_token,texto_token>
-                else if (token_type.equals("PALAVRA_CHAVE") || token_type.equals("OP_REL") || token_type.equals("OP_ARIT") || token_type.equals("OP_LOG") || token_type.equals("CARACTERE_ESP") ) {
-                    vocab_type = "\'"+t.getText()+"\'";
-                } 
-
-                // Escreve no formato <texto_token,nome_tipo_token>
-                else {
-                    vocab_type = token_type;
-                }
-
-                // Formata e adiciona o novo token ao buffer
-                String textToAppend = String.format("<'%s',%s>%n", t.getText(), vocab_type);
-                buffer.append(textToAppend);
-
-            }
+            parser.programa();
+            
         } catch (Exception ex) {
             // Detecção de exceções
             System.err.println("Erro: " + ex.getMessage());
