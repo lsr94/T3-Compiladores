@@ -3,7 +3,7 @@ package br.ufscar.dc.compiladores.alguma.grammar;
 import org.antlr.v4.runtime.BaseErrorListener;
 import org.antlr.v4.runtime.RecognitionException;
 import org.antlr.v4.runtime.Recognizer;
-
+import org.antlr.v4.runtime.Token;
 
 public class CustomErrorListener extends BaseErrorListener {
     public StringBuilder buffer;
@@ -17,9 +17,10 @@ public class CustomErrorListener extends BaseErrorListener {
                             int line, int charPositionInLine,
                             String msg, RecognitionException e){
         
-        //System.out.println(msg.split("'")[1]);                        
-        String symbolText = msg == null ? "unknown" : msg.split("'")[1];
-        buffer.append("Linha " + line + ": "+symbolText+" - simbolo nao identificado\n");                     
+        //System.out.println(msg.split("'")[1]);    
+        Token t = (Token) offendingSymbol;                    
+        buffer.append("Linha " + line + ": erro sintatico proximo a "+t.getText()+"\nFim da compilacao\n");                     
+        System.out.println(t.getText());
     }
     
 }

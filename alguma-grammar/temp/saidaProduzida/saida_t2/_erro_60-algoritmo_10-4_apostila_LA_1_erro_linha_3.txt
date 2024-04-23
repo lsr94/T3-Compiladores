@@ -1,0 +1,10 @@
+Linha 3: erro sintatico proximo a intero
+Fim da compilacao
+Linha 47: erro sintatico proximo a faca
+Fim da compilacao
+Linha 52: erro sintatico proximo a ate
+Fim da compilacao
+Linha 74: erro sintatico proximo a -
+Fim da compilacao
+Linha 76: erro sintatico proximo a fim_para
+Fim da compilacao

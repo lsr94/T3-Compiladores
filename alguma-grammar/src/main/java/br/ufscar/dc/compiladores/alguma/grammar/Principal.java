@@ -34,15 +34,21 @@ public class Principal {
             // Leitura dos caracteres
             CharStream cs = CharStreams.fromFileName(args[0]);
             AlgumaGrammarLexer lexer = new AlgumaGrammarLexer(cs);
+            Token t = null;
+
+
+            // while((t = lexer.nextToken()).getType() != Token.EOF){
+            //     System.out.println("<" + AlgumaGrammarLexer.VOCABULARY.getDisplayName(t.getType()) + "," + t.getText() + ">");
+            // }
+
+            // Remove a classe padrão de listeners para erros  
 
             CommonTokenStream tokens = new CommonTokenStream(lexer);
             AlgumaGrammarParser parser = new AlgumaGrammarParser(tokens);
-            
-
-            // Remove a classe padrão de listeners para erros  
             parser.removeErrorListeners();
             // Adicionando a classe CustomErrorListener com método customizado para erros de sintaxe (syntaxError)
             parser.addErrorListener(new CustomErrorListener(buffer));
+
             
             parser.programa();
             

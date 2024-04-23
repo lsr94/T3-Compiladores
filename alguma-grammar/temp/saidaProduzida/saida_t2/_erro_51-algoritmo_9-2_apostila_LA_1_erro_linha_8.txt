@@ -1,0 +1,12 @@
+Linha 8: erro sintatico proximo a tRacional
+Fim da compilacao
+Linha 16: erro sintatico proximo a faca
+Fim da compilacao
+Linha 17: erro sintatico proximo a %
+Fim da compilacao
+Linha 20: erro sintatico proximo a ate
+Fim da compilacao
+Linha 23: erro sintatico proximo a /
+Fim da compilacao
+Linha 24: erro sintatico proximo a /
+Fim da compilacao

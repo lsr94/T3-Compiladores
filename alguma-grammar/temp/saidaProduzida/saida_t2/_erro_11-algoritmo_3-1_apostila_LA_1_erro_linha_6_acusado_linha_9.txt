@@ -1,0 +1,4 @@
+Linha 9: erro sintatico proximo a leia
+Fim da compilacao
+Linha 12: erro sintatico proximo a /
+Fim da compilacao
