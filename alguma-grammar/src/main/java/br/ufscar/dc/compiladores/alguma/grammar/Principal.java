@@ -1,5 +1,5 @@
 /*
-1º trabalho prático da disciplina Construção de Compiladores - 2024/1
+2º trabalho prático da disciplina Construção de Compiladores - 2024/1
 Desenvolvido por:
 - Lara Santiago Rodrigues, 769701
 - Letícia Bossatto Marchezi, 791003
@@ -36,7 +36,6 @@ public class Principal {
             AlgumaGrammarLexer lexer = new AlgumaGrammarLexer(cs);
             Token t = null;
 
-
             // while((t = lexer.nextToken()).getType() != Token.EOF){
             //     System.out.println("<" + AlgumaGrammarLexer.VOCABULARY.getDisplayName(t.getType()) + "," + t.getText() + ">");
             // }
@@ -49,7 +48,6 @@ public class Principal {
             // Adicionando a classe CustomErrorListener com método customizado para erros de sintaxe (syntaxError)
             parser.addErrorListener(new CustomErrorListener(buffer));
 
-            
             parser.programa();
             
         } catch (Exception ex) {

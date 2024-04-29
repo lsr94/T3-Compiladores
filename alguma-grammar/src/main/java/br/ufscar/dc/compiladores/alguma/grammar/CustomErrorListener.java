@@ -18,9 +18,31 @@ public class CustomErrorListener extends BaseErrorListener {
                             String msg, RecognitionException e){
         
         //System.out.println(msg.split("'")[1]);    
-        Token t = (Token) offendingSymbol;                    
-        buffer.append("Linha " + line + ": erro sintatico proximo a "+t.getText()+"\nFim da compilacao\n");                     
-        System.out.println(t.getText());
+        Token t = (Token) offendingSymbol;  
+        String token_type = AlgumaGrammarLexer.VOCABULARY.getDisplayName(t.getType());   
+        
+        /* Há algumas saídas mais específicas que não passam na saída padrão, logo haverá impressões específicas para estes casos
+         * Fora estes casos, por padrão, as demais saídas serão 'default'
+         * Os números abaixo, colocados para cada caso, estão no arquivo AlgumaGrammar.tokens
+         * Para encontrar este arquivo, siga o caminho da pasta: 
+         * target > generated-sources > antlr4 > AlgumaGrammar.tokens
+        */
+        switch (t.getType()) { 
+            case -1: // -1 refere-se ao token EOF, que indica o fim do programa analisado
+                buffer.append("Linha " + line + ": erro sintatico proximo a EOF"+"\nFim da compilacao\n");
+                break;
+            case 65: // 65 refere-se ao erro em uma cadeia literal NÃO fechada
+                buffer.append("Linha " + line + ": cadeia literal nao fechada"+"\nFim da compilacao\n");
+                break;
+            case 66: // 66 refere-se ao erro em um comentário NÃO fechado
+                buffer.append("Linha " + line + ": comentario nao fechado"+"\nFim da compilacao\n");
+                break;
+            case 68: // 68 refere-se a um erro na identificação de símbolos
+                buffer.append("Linha " + line + ": " + t.getText() + " - simbolo nao identificado"+"\nFim da compilacao\n");
+                break;
+            default: // Por padrão, o programa exibe a mensagem de erro sintático genérica
+                buffer.append("Linha " + line + ": erro sintatico proximo a " + t.getText()+"\nFim da compilacao\n");
+                break;
+        }  
     }
-    
 }
