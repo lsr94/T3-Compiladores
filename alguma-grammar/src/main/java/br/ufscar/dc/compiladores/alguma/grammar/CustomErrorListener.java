@@ -19,8 +19,7 @@ public class CustomErrorListener extends BaseErrorListener {
         
         //System.out.println(msg.split("'")[1]);    
         Token t = (Token) offendingSymbol;  
-        String token_type = AlgumaGrammarLexer.VOCABULARY.getDisplayName(t.getType());   
-        
+
         /* Há algumas saídas mais específicas que não passam na saída padrão, logo haverá impressões específicas para estes casos
          * Fora estes casos, por padrão, as demais saídas serão 'default'
          * Os números abaixo, colocados para cada caso, estão no arquivo AlgumaGrammar.tokens
@@ -44,6 +43,7 @@ public class CustomErrorListener extends BaseErrorListener {
                 buffer.append("Linha " + line + ": erro sintatico proximo a " + t.getText()+"\nFim da compilacao\n");
                 break;
         }  
+        // Lança a exceção para finalizar o programa
         throw new RuntimeException();
 
     }

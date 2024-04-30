@@ -9,7 +9,6 @@ package br.ufscar.dc.compiladores.alguma.grammar;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
-import org.antlr.v4.runtime.Token;
 import java.io.File;
 import java.io.FileWriter;
 
@@ -34,20 +33,16 @@ public class Principal {
             // Leitura dos caracteres
             CharStream cs = CharStreams.fromFileName(args[0]);
             AlgumaGrammarLexer lexer = new AlgumaGrammarLexer(cs);
-            Token t = null;
-
-            // while((t = lexer.nextToken()).getType() != Token.EOF){
-            //     System.out.println("<" + AlgumaGrammarLexer.VOCABULARY.getDisplayName(t.getType()) + "," + t.getText() + ">");
-            // }
 
             // Remove a classe padrão de listeners para erros  
 
             CommonTokenStream tokens = new CommonTokenStream(lexer);
             AlgumaGrammarParser parser = new AlgumaGrammarParser(tokens);
             parser.removeErrorListeners();
+            
             // Adicionando a classe CustomErrorListener com método customizado para erros de sintaxe (syntaxError)
             parser.addErrorListener(new CustomErrorListener(buffer));
-
+            // Invocando o parser
             parser.programa();
             
         } catch (Exception ex) {
