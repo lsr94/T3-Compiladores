@@ -1,6 +1,6 @@
 # T2-Construcao-Compiladores
 
-## T1 - Analisador Léxico ##
+## T2 - Analisador Sintático ##
 Neste repositório, encontra-se o segundo trabalho realizado na disciplina de Construção de Compiladores ofertada no 1º semestre de 2024 ministrada pelo Prof. Dr. Daniel Lucrédio.
 O objetivo do mesmo é desenvolver um analisador sintático. Abaixo, encontra-se as instruções do que é necessário ter instalado na máquina pessoal para executar o analisador, assim como, compilar e executá-lo. Ademais, conterá a explicação da gramática criada mediante regras para atender aos casos de teste fornecidos pelo professor (foi reaproveitada a gramática do analisador léxico do trabalho anterior + criação de nova gramática para atender a análise sintática).
 Espera-se que este analisador léxico funcione nos sistemas operacionais: Linux, Windows e macOS.
@@ -68,7 +68,7 @@ Um exemplo de execução é a seguinte:
 
 A análise sintática também pode ser realizada por meio do ![corretor automatico](https://github.com/dlucredio/compiladores-corretor-automatico/tree/master), executando o analisador em lotes em conjunto com a correção dos resultados, comparando a saída gerada com o resultado esperado. 
 
-Há 62 casos a serem testados para este trabalho. Acesse a pasta completa em: ![casos-de-teste](COLOCAR AQUI). 
+Há 62 casos a serem testados para este trabalho. Acesse a pasta completa em: ![casos-de-teste](https://github.com/letMarchezi/T2-Construcao-Compiladores/tree/main/alguma-grammar/casos-de-teste/2.casos_teste_t2). 
 
 A execução do corretor automático é feita com o seguinte comando:
 
@@ -105,12 +105,8 @@ Definições já realizadas anteriormente:
 - IDENT: este padrão é responsável por definir o que pode ser considerado um identificador (ou variável) dentro dos algoritmos. Identificadores são cadeias iniciadas por letras e seguidar por letras ou números, além do símbolo de _. Devem ser imprimidos da forma <'exemplo111',IDENT>;
 - CADEIA: este padrão identifica uma cadeia de caracteres (ou string) dentro dos algoritmos. As cadeias são definidas por sequências de quaisquer símbolos que estão entre aspas simples ou duplas. Devem ser imprimidos da forma <'"string"',CADEIA>;
 - COMENTARIO: os comentários são ignorados pelo analisador léxico, de modo que não geram tokens. São identificados por caracteres que estão entre chaves. São reconhecidos pelo padrão { comentario };
-- CADEIA_NAO_FECHADA: Cadeias de aspas duplas ou aspas simples que não foram fechadas na mesma linha que foram iniciadas. Exemplo:
-
-	'imprimindo a sequencia\n
-- COMENTARIO_NAO_FECHADO: Identifica comentários que não foram fechados na mesma linha. Exemplo:
-
-	{ comentario. 
+- CADEIA_NAO_FECHADA: Cadeias de aspas duplas ou aspas simples que não foram fechadas na mesma linha que foram iniciadas. Exemplo: 'imprimindo a sequencia\n
+- COMENTARIO_NAO_FECHADO: Identifica comentários que não foram fechados na mesma linha. Exemplo: { comentario. 
 - WS: define espaços em branco, quebras de linha e tabulações, que também são ignorados pelo analisar léxico;
 - ERRO: Identificador coringa que detecta qualquer padrão que não foi identificado nas regras anteriores;
 
