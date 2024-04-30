@@ -44,5 +44,7 @@ public class CustomErrorListener extends BaseErrorListener {
                 buffer.append("Linha " + line + ": erro sintatico proximo a " + t.getText()+"\nFim da compilacao\n");
                 break;
         }  
+        throw new RuntimeException();
+
     }
 }
