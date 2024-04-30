@@ -269,13 +269,13 @@ public class AlgumaGrammarBaseListener implements AlgumaGrammarListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCmdEscriva(AlgumaGrammarParser.CmdEscrivaContext ctx) { }
+	@Override public void enterCmdEscreva(AlgumaGrammarParser.CmdEscrevaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCmdEscriva(AlgumaGrammarParser.CmdEscrivaContext ctx) { }
+	@Override public void exitCmdEscreva(AlgumaGrammarParser.CmdEscrevaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -341,13 +341,13 @@ public class AlgumaGrammarBaseListener implements AlgumaGrammarListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCmdAtribuica(AlgumaGrammarParser.CmdAtribuicaContext ctx) { }
+	@Override public void enterCmdAtribuicao(AlgumaGrammarParser.CmdAtribuicaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCmdAtribuica(AlgumaGrammarParser.CmdAtribuicaContext ctx) { }
+	@Override public void exitCmdAtribuicao(AlgumaGrammarParser.CmdAtribuicaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

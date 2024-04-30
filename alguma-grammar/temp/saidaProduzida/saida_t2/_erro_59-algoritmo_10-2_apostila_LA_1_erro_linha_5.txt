@@ -4,7 +4,3 @@ Linha 11: erro sintatico proximo a :
 Fim da compilacao
 Linha 13: erro sintatico proximo a :
 Fim da compilacao
-Linha 17: erro sintatico proximo a -
-Fim da compilacao
-Linha 20: erro sintatico proximo a /
-Fim da compilacao

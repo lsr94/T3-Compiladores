@@ -218,15 +218,15 @@ public interface AlgumaGrammarListener extends ParseTreeListener {
 	 */
 	void exitCmdLeia(AlgumaGrammarParser.CmdLeiaContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link AlgumaGrammarParser#cmdEscriva}.
+	 * Enter a parse tree produced by {@link AlgumaGrammarParser#cmdEscreva}.
 	 * @param ctx the parse tree
 	 */
-	void enterCmdEscriva(AlgumaGrammarParser.CmdEscrivaContext ctx);
+	void enterCmdEscreva(AlgumaGrammarParser.CmdEscrevaContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link AlgumaGrammarParser#cmdEscriva}.
+	 * Exit a parse tree produced by {@link AlgumaGrammarParser#cmdEscreva}.
 	 * @param ctx the parse tree
 	 */
-	void exitCmdEscriva(AlgumaGrammarParser.CmdEscrivaContext ctx);
+	void exitCmdEscreva(AlgumaGrammarParser.CmdEscrevaContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link AlgumaGrammarParser#cmdSe}.
 	 * @param ctx the parse tree
@@ -278,15 +278,15 @@ public interface AlgumaGrammarListener extends ParseTreeListener {
 	 */
 	void exitCmdFaca(AlgumaGrammarParser.CmdFacaContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link AlgumaGrammarParser#cmdAtribuica}.
+	 * Enter a parse tree produced by {@link AlgumaGrammarParser#cmdAtribuicao}.
 	 * @param ctx the parse tree
 	 */
-	void enterCmdAtribuica(AlgumaGrammarParser.CmdAtribuicaContext ctx);
+	void enterCmdAtribuicao(AlgumaGrammarParser.CmdAtribuicaoContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link AlgumaGrammarParser#cmdAtribuica}.
+	 * Exit a parse tree produced by {@link AlgumaGrammarParser#cmdAtribuicao}.
 	 * @param ctx the parse tree
 	 */
-	void exitCmdAtribuica(AlgumaGrammarParser.CmdAtribuicaContext ctx);
+	void exitCmdAtribuicao(AlgumaGrammarParser.CmdAtribuicaoContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link AlgumaGrammarParser#cmdChamada}.
 	 * @param ctx the parse tree

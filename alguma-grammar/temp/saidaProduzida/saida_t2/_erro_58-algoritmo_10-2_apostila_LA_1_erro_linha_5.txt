@@ -1,6 +1,0 @@
-Linha 5: erro sintatico proximo a 40
-Fim da compilacao
-Linha 17: erro sintatico proximo a -
-Fim da compilacao
-Linha 20: erro sintatico proximo a /
-Fim da compilacao

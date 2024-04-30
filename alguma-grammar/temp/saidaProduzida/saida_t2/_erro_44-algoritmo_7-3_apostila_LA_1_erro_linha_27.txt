@@ -1,14 +1,4 @@
-Linha 18: erro sintatico proximo a %
-Fim da compilacao
-Linha 20: erro sintatico proximo a senao
-Fim da compilacao
-Linha 22: erro sintatico proximo a fim_se
-Fim da compilacao
-Linha 26: erro sintatico proximo a %
-Fim da compilacao
 Linha 27: erro sintatico proximo a <
 Fim da compilacao
 Linha 27: erro sintatico proximo a -
-Fim da compilacao
-Linha 28: erro sintatico proximo a fim_se
 Fim da compilacao

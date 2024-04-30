@@ -1,10 +1,10 @@
 grammar AlgumaGrammar;
 
-NUM_INT: ('0'..'9')+;
+NUM_INT : ('0'..'9')+;
 
-NUM_REAL: ('0'..'9')+ ('.' ('0'..'9')+)?;
+NUM_REAL : ('0'..'9')+ ('.' ('0'..'9')+)?;
 
-IDENT: ('a'..'z'|'A'..'Z') ('_'|'a'..'z'|'A'..'Z'|'0'..'9')*;
+IDENT : ('a'..'z'|'A'..'Z') ('_'|'a'..'z'|'A'..'Z'|'0'..'9')*;
 
 CADEIA : ('"' ( ESC_SEQ | ~('"'|'\\'|'\n') )* '"' ) | ('\'' ( ESC_SEQ_SQ | ~('\''|'\\'|'\n') )* '\'');
 
@@ -13,33 +13,31 @@ fragment ESC_SEQ_SQ : '\\\'';
 
 COMENTARIO : '{' ~('\n'|'}')* '}' -> skip;
 
-CADEIA_NAO_FECHADA: '"' ( ESC_SEQ | ~('"'|'\\'|'\n'))* '\n';
+CADEIA_NAO_FECHADA : '"' ( ESC_SEQ | ~('"'|'\\'|'\n'))* '\n';
 
-COMENTARIO_NAO_FECHADO: '{' (~('\n'|'}'))* '\n';
+COMENTARIO_NAO_FECHADO : '{' (~('\n'|'}'))* '\n';
 
-WS: (' ' | '\t' | '\r' | '\n') {skip();};
+WS : (' ' | '\t' | '\r' | '\n') {skip();};
 
-ERRO: .;
+ERRO : .;
 
-programa : 
-    {System.out.println("Começou o programa!");} declaracoes { System.out.println("Declaracoes"); } 'algoritmo' corpo 'fim_algoritmo' EOF;
+programa : declaracoes 'algoritmo' corpo 'fim_algoritmo' EOF;
 
 op_logico_1 : 'ou';
 
 op_logico_2 : 'e';
 
-declaracoes : 
-    {System.out.println("global");} (decl_local_global)*;
+declaracoes : (decl_local_global)*;
 
 tipo_basico : 'literal' | 'inteiro' | 'real' | 'logico';
 
-identificador : IDENT { System.out.println("IDENT: "+$IDENT.text+""); }  ('.' IDENT)* dimensao;
+identificador : IDENT  ('.' IDENT)* dimensao;
 
-variavel : identificador (',' identificador)* {System.out.println("Buscando outros identificadores");} ':' {System.out.println("Leu os :");} tipo {System.out.println("Leu o tipo");};
+variavel : identificador (',' identificador)* ':' tipo;
 
-decl_local_global : {System.out.println("Antes do local");} declaracao_local {System.out.println("Depois do local");} | declaracao_global;
+decl_local_global : declaracao_local | declaracao_global;
 
-tipo_basico_ident : { System.out.println("tipo: "+$tipo_basico.text+""); } tipo_basico | IDENT;
+tipo_basico_ident : tipo_basico | IDENT;
 
 declaracao_local : 'declare' variavel
                   | 'constante' IDENT ':' tipo_basico '=' valor_constante
@@ -107,7 +105,7 @@ op1 : '+' | '-';
 
 op2 : '*' | '/'; 
 
-op3 : '^' | '%';
+op3 : '%';
 
 parcela : (op_unario)? parcela_unario | parcela_nao_unario;
 
@@ -129,5 +127,4 @@ termo_logico : fator_logico (op_logico_2 fator_logico)*;
 
 fator_logico : ('nao')? parcela_logica;
 
-parcela_logica : ('verdadeiro' | 'falso') 
-               | exp_relacional;
+parcela_logica : ('verdadeiro' | 'falso') | exp_relacional;
