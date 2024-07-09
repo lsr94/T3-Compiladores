@@ -12,6 +12,8 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import java.io.File;
 import java.io.FileWriter;
 
+import br.ufscar.dc.compiladores.alguma.grammar.AlgumaGrammarParser.ProgramaContext;
+
 public class Principal {
     
     // Criação de buffer para armazenar a saída
@@ -30,21 +32,14 @@ public class Principal {
         createOutputDirectory(args[1]);
 
         try {
-            // Leitura dos caracteres
             CharStream cs = CharStreams.fromFileName(args[0]);
             AlgumaGrammarLexer lexer = new AlgumaGrammarLexer(cs);
-
-            // Remove a classe padrão de listeners para erros  
-
             CommonTokenStream tokens = new CommonTokenStream(lexer);
             AlgumaGrammarParser parser = new AlgumaGrammarParser(tokens);
-            parser.removeErrorListeners();
-            
-            // Adicionando a classe CustomErrorListener com método customizado para erros de sintaxe (syntaxError)
-            parser.addErrorListener(new CustomErrorListener(buffer));
-            // Invocando o parser
-            parser.programa();
-            
+            // ProgramaContext arvore = parser.programa();
+            // AlgumaSemantico as = new AlgumaSemantico();
+            // as.visitPrograma(arvore);
+            // AlgumaSemanticoUtils.errosSemanticos.forEach((s) -> System.out.println(s));
         } catch (Exception ex) {
             // Detecção de exceções
             System.err.println("Erro: " + ex.getMessage());
