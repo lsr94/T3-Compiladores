@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # T2-Construcao-Compiladores
 
 ## T2 - Analisador Sintático ##
@@ -161,3 +162,7 @@ Novas definições para o analisador sintático:
 - termo_logico: representa um conjunto de um ou mais fatores lógicos seguidos por operadores lógicos;
 - fator_logico: representa uma parcela lógica que pode ser negada com o uso da palavra-chave 'nao' (opcional);
 - parcela_logica: representa os valores verdadeiro ou falso ou uma expressão relacional;
+=======
+# T3-Compiladores
+3º Trabalho Prático da Disciplina de Construção de Compiladores ofertada em 2024/1
+>>>>>>> 4a08d1e4c6aba83a585a1750fef065d00a52532e
