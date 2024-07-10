@@ -1,7 +1,9 @@
-<<<<<<< HEAD
-# T2-Construcao-Compiladores
+======> As devidas alterações serão realizadas para satisfazer as exigências do T3.
 
-## T2 - Analisador Sintático ##
+# T3-Compiladores
+3º Trabalho Prático da Disciplina de Construção de Compiladores ofertada em 2024/1
+
+## T3 - Analisador Semântico ##
 Neste repositório, encontra-se o segundo trabalho realizado na disciplina de Construção de Compiladores ofertada no 1º semestre de 2024 ministrada pelo Prof. Dr. Daniel Lucrédio.
 O objetivo do mesmo é desenvolver um analisador sintático. Abaixo, encontra-se as instruções do que é necessário ter instalado na máquina pessoal para executar o analisador, assim como, compilar e executá-lo. Ademais, conterá a explicação da gramática criada mediante regras para atender aos casos de teste fornecidos pelo professor (foi reaproveitada a gramática do analisador léxico do trabalho anterior + criação de nova gramática para atender a análise sintática).
 Espera-se que este analisador léxico funcione nos sistemas operacionais: Linux, Windows e macOS.
@@ -163,6 +165,4 @@ Novas definições para o analisador sintático:
 - fator_logico: representa uma parcela lógica que pode ser negada com o uso da palavra-chave 'nao' (opcional);
 - parcela_logica: representa os valores verdadeiro ou falso ou uma expressão relacional;
 =======
-# T3-Compiladores
-3º Trabalho Prático da Disciplina de Construção de Compiladores ofertada em 2024/1
->>>>>>> 4a08d1e4c6aba83a585a1750fef065d00a52532e
+
